@@ -1,4 +1,30 @@
 package aoc.twentytwentyfour.runner;
 
+import aoc.twentytwentyfour.one.Day1;
+import aoc.twentytwentyfour.one.LocationIdLists;
+
+import java.io.File;
+
 public class Runner {
+
+    public static void main(String[] args) {
+        System.out.println(day1Part1());
+        System.out.println(day1Part2());
+    }
+
+    static String day1Part1() {
+        LocationIdLists day1Input = new LocationIdLists(new File("src/main/resources/day1.txt"));
+        int answer = new Day1().part1(day1Input);
+        return getResultString(answer, 1, 1);
+    }
+
+    static String day1Part2() {
+        LocationIdLists day1Input = new LocationIdLists(new File("src/main/resources/day1.txt"));
+        int answer = new Day1().part2(day1Input);
+        return getResultString(answer, 1, 2);
+    }
+
+    static String getResultString(Object result, int day, int part) {
+        return String.format("Day %s part %s result: %s", day, part, result);
+    }
 }
