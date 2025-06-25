@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Day2 {
+public final class Day2 {
 
     public long part1(Reports reports) {
         return reports.asList()
