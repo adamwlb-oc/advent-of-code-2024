@@ -16,7 +16,7 @@ class Day1Test {
     @BeforeEach
     void setup() {
         underTest = new Day1();
-        File sampleInput = new File("src/test/resources/sampleInput.txt");
+        File sampleInput = new File("src/test/resources/day1sample.txt");
         input = new LocationIdLists(sampleInput);
     }
 

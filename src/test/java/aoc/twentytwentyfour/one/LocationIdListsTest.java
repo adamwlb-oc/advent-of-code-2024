@@ -11,7 +11,7 @@ class LocationIdListsTest {
 
     @Test
     public void canParseInputFile() {
-        File sampleInput = new File("src/test/resources/sampleInput.txt");
+        File sampleInput = new File("src/test/resources/day1sample.txt");
 
         LocationIdLists result = new LocationIdLists(sampleInput);
 

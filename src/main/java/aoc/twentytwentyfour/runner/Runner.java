@@ -2,6 +2,8 @@ package aoc.twentytwentyfour.runner;
 
 import aoc.twentytwentyfour.one.Day1;
 import aoc.twentytwentyfour.one.LocationIdLists;
+import aoc.twentytwentyfour.two.Day2;
+import aoc.twentytwentyfour.two.Reports;
 
 import java.io.File;
 
@@ -10,6 +12,8 @@ public class Runner {
     public static void main(String[] args) {
         System.out.println(day1Part1());
         System.out.println(day1Part2());
+        System.out.println(day2Part1());
+        System.out.println(day2Part2());
     }
 
     static String day1Part1() {
@@ -22,6 +26,18 @@ public class Runner {
         LocationIdLists day1Input = new LocationIdLists(new File("src/main/resources/day1.txt"));
         int answer = new Day1().part2(day1Input);
         return getResultString(answer, 1, 2);
+    }
+
+    static String day2Part1() {
+        Reports day2Input = new Reports(new File("src/main/resources/day2.txt"));
+        long answer = new Day2().part1(day2Input);
+        return getResultString(answer, 2, 1);
+    }
+
+    static String day2Part2() {
+        Reports day2Input = new Reports(new File("src/main/resources/day2.txt"));
+        long answer = new Day2().part2(day2Input);
+        return getResultString(answer, 2, 2);
     }
 
     static String getResultString(Object result, int day, int part) {
