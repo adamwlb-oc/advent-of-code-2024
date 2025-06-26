@@ -6,4 +6,4 @@ Completed in Java as an exercise to practice test-driven development.
 
 Individual parts are executed by Runner.java, and can be commented out as desired.  
 Each day's solutions are contained in individual packages.  
-Puzzle input can be found in the resources folder.
+Puzzle input is not included per Advent of Code recommendations.
