@@ -1,5 +1,7 @@
 package aoc.twentytwentyfour.runner;
 
+import aoc.twentytwentyfour.four.Day4;
+import aoc.twentytwentyfour.four.Wordsearch;
 import aoc.twentytwentyfour.one.Day1;
 import aoc.twentytwentyfour.one.LocationIdLists;
 import aoc.twentytwentyfour.three.Day3;
@@ -18,6 +20,8 @@ public class Runner {
         System.out.println(day2Part2());
         System.out.println(day3Part1());
         System.out.println(day3Part2());
+        System.out.println(day4Part1());
+        System.out.println(day4Part2());
     }
 
     private static String day1Part1() {
@@ -54,6 +58,18 @@ public class Runner {
         Memory day3Input = new Memory(new File("src/main/resources/day3.txt"));
         int answer = new Day3().part2(day3Input);
         return getResultString(answer, 3, 2);
+    }
+
+    private static String day4Part1() {
+        Wordsearch day4Input = new Wordsearch(new File("src/main/resources/day4.txt"));
+        int answer = new Day4().part1(day4Input);
+        return getResultString(answer, 4, 1);
+    }
+
+    private static String day4Part2() {
+        Wordsearch day4Input = new Wordsearch(new File("src/main/resources/day4.txt"));
+        int answer = new Day4().part2(day4Input);
+        return getResultString(answer, 4, 2);
     }
 
     static String getResultString(Object result, int day, int part) {
