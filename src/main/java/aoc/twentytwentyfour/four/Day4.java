@@ -1,5 +1,7 @@
 package aoc.twentytwentyfour.four;
 
+import aoc.twentytwentyfour.common.CoordinatePair;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,19 +16,6 @@ import static aoc.twentytwentyfour.four.SearchDirection.allDirections;
 import static aoc.twentytwentyfour.four.SearchDirection.diagonals;
 
 public class Day4 {
-
-    public int part1(Wordsearch wordsearch) {
-        return getOccurancesOfWord(wordsearch, "XMAS", allDirections());
-    }
-
-    public int part2(Wordsearch wordsearch) {
-        Set<WordsearchMatch> mases = getDetailedMatches(wordsearch, "MAS", diagonals());
-
-        Set<WordsearchMatch> hasPairs = mases.stream()
-                .filter(mas -> hasDiagonalPair(mas, mases))
-                .collect(Collectors.toSet());
-        return hasPairs.size() / 2;
-    }
 
     private static boolean hasDiagonalPair(WordsearchMatch candidate, Set<WordsearchMatch> allMatches) {
         Set<SearchDirection> directions = switch (candidate.direction()) {
@@ -131,5 +120,18 @@ public class Day4 {
                 .filter(direction -> searchInDirection(space, term, start, direction))
                 .map(direction -> new WordsearchMatch(term, start, direction))
                 .collect(Collectors.toSet());
+    }
+
+    public int part1(Wordsearch wordsearch) {
+        return getOccurancesOfWord(wordsearch, "XMAS", allDirections());
+    }
+
+    public int part2(Wordsearch wordsearch) {
+        Set<WordsearchMatch> mases = getDetailedMatches(wordsearch, "MAS", diagonals());
+
+        Set<WordsearchMatch> hasPairs = mases.stream()
+                .filter(mas -> hasDiagonalPair(mas, mases))
+                .collect(Collectors.toSet());
+        return hasPairs.size() / 2;
     }
 }

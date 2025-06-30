@@ -1,5 +1,7 @@
 package aoc.twentytwentyfour.four;
 
+import aoc.twentytwentyfour.common.CoordinatePair;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -40,7 +42,7 @@ public class Wordsearch {
     public int height() {
         return asCharacterGrid().size();
     }
-    
+
     public int width() {
         return asCharacterGrid().getFirst().size();
     }

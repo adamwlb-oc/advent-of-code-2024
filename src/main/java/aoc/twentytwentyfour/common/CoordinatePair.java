@@ -1,4 +1,4 @@
-package aoc.twentytwentyfour.four;
+package aoc.twentytwentyfour.common;
 
 public record CoordinatePair(int x, int y) {
 

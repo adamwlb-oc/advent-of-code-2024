@@ -1,4 +1,4 @@
-package aoc.twentytwentyfour.four;
+package aoc.twentytwentyfour.common;
 
 import org.junit.jupiter.api.Test;
 

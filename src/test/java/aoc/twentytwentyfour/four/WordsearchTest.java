@@ -1,5 +1,6 @@
 package aoc.twentytwentyfour.four;
 
+import aoc.twentytwentyfour.common.CoordinatePair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,6 +20,13 @@ class WordsearchTest {
     private static final File SAMPLE_INPUT = new File("src/test/resources/day4sample.txt");
 
     private Wordsearch underTest;
+
+    private static Stream<Arguments> getInvalidCoords() {
+        return Stream.of(
+                Arguments.of(new CoordinatePair(10, 3)),
+                Arguments.of(new CoordinatePair(4, 12))
+        );
+    }
 
     @BeforeEach
     void setup() {
@@ -58,12 +66,5 @@ class WordsearchTest {
     @MethodSource("getInvalidCoords")
     void checksOutOfBoundCoords(CoordinatePair coords) {
         assertFalse(underTest.inBounds(coords));
-    }
-
-    private static Stream<Arguments> getInvalidCoords() {
-        return Stream.of(
-                Arguments.of(new CoordinatePair(10, 3)),
-                Arguments.of(new CoordinatePair(4, 12))
-        );
     }
 }

@@ -1,5 +1,6 @@
 package aoc.twentytwentyfour.four;
 
+import aoc.twentytwentyfour.common.CoordinatePair;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -26,6 +27,36 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class Day4Test {
 
     private static final File SAMPLE_INPUT = new File("src/test/resources/day4sample.txt");
+
+    private static Stream<Arguments> getSearchParams() {
+        return Stream.of(
+                Arguments.of(new CoordinatePair(3, 3), LEFT),
+                Arguments.of(new CoordinatePair(3, 3), RIGHT),
+                Arguments.of(new CoordinatePair(3, 3), UP),
+                Arguments.of(new CoordinatePair(3, 3), DOWN),
+                Arguments.of(new CoordinatePair(3, 3), UP_LEFT),
+                Arguments.of(new CoordinatePair(3, 3), UP_RIGHT),
+                Arguments.of(new CoordinatePair(3, 3), DOWN_LEFT),
+                Arguments.of(new CoordinatePair(3, 3), DOWN_RIGHT),
+                Arguments.of(new CoordinatePair(6, 0), UP),
+                Arguments.of(new CoordinatePair(0, 6), RIGHT),
+                Arguments.of(new CoordinatePair(3, 6), DOWN_LEFT)
+        );
+    }
+
+    private static Stream<Arguments> getDiagonalPairs() {
+        String word = "MAS";
+        return Stream.of(
+                Arguments.of(new CoordinatePair(2, 3), new WordsearchMatch(word, new CoordinatePair(0, 3), DOWN_RIGHT), DOWN_LEFT),
+                Arguments.of(new CoordinatePair(0, 1), new WordsearchMatch(word, new CoordinatePair(0, 3), DOWN_RIGHT), UP_RIGHT),
+                Arguments.of(new CoordinatePair(0, 3), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_LEFT), DOWN_RIGHT),
+                Arguments.of(new CoordinatePair(2, 1), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_LEFT), UP_LEFT),
+                Arguments.of(new CoordinatePair(4, 3), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_RIGHT), DOWN_LEFT),
+                Arguments.of(new CoordinatePair(2, 1), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_RIGHT), UP_RIGHT),
+                Arguments.of(new CoordinatePair(2, 3), new WordsearchMatch(word, new CoordinatePair(4, 3), DOWN_LEFT), DOWN_RIGHT),
+                Arguments.of(new CoordinatePair(4, 1), new WordsearchMatch(word, new CoordinatePair(4, 3), DOWN_LEFT), UP_LEFT)
+        );
+    }
 
     @Test
     void countsAppearancesOfWord() {
@@ -146,35 +177,5 @@ class Day4Test {
     void sampleInputPart2() {
         Wordsearch sampleInput = new Wordsearch(SAMPLE_INPUT);
         assertEquals(9, new Day4().part2(sampleInput));
-    }
-
-    private static Stream<Arguments> getSearchParams() {
-        return Stream.of(
-                Arguments.of(new CoordinatePair(3, 3), LEFT),
-                Arguments.of(new CoordinatePair(3, 3), RIGHT),
-                Arguments.of(new CoordinatePair(3, 3), UP),
-                Arguments.of(new CoordinatePair(3, 3), DOWN),
-                Arguments.of(new CoordinatePair(3, 3), UP_LEFT),
-                Arguments.of(new CoordinatePair(3, 3), UP_RIGHT),
-                Arguments.of(new CoordinatePair(3, 3), DOWN_LEFT),
-                Arguments.of(new CoordinatePair(3, 3), DOWN_RIGHT),
-                Arguments.of(new CoordinatePair(6, 0), UP),
-                Arguments.of(new CoordinatePair(0, 6), RIGHT),
-                Arguments.of(new CoordinatePair(3, 6), DOWN_LEFT)
-        );
-    }
-
-    private static Stream<Arguments> getDiagonalPairs() {
-        String word = "MAS";
-        return Stream.of(
-                Arguments.of(new CoordinatePair(2, 3), new WordsearchMatch(word, new CoordinatePair(0, 3), DOWN_RIGHT), DOWN_LEFT),
-                Arguments.of(new CoordinatePair(0, 1), new WordsearchMatch(word, new CoordinatePair(0, 3), DOWN_RIGHT), UP_RIGHT),
-                Arguments.of(new CoordinatePair(0, 3), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_LEFT), DOWN_RIGHT),
-                Arguments.of(new CoordinatePair(2, 1), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_LEFT), UP_LEFT),
-                Arguments.of(new CoordinatePair(4, 3), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_RIGHT), DOWN_LEFT),
-                Arguments.of(new CoordinatePair(2, 1), new WordsearchMatch(word, new CoordinatePair(2, 3), DOWN_RIGHT), UP_RIGHT),
-                Arguments.of(new CoordinatePair(2, 3), new WordsearchMatch(word, new CoordinatePair(4, 3), DOWN_LEFT), DOWN_RIGHT),
-                Arguments.of(new CoordinatePair(4, 1), new WordsearchMatch(word, new CoordinatePair(4, 3), DOWN_LEFT), UP_LEFT)
-        );
     }
 }
