@@ -9,6 +9,7 @@ import aoc.twentytwentyfour.one.Day1;
 import aoc.twentytwentyfour.one.LocationIdLists;
 import aoc.twentytwentyfour.seven.Day7;
 import aoc.twentytwentyfour.six.Day6;
+import aoc.twentytwentyfour.ten.Day10;
 import aoc.twentytwentyfour.three.Day3;
 import aoc.twentytwentyfour.three.Memory;
 import aoc.twentytwentyfour.two.Day2;
@@ -37,6 +38,8 @@ public class Runner {
         System.out.println(day8Part2());
         System.out.println(day9Part1());
         System.out.println(day9Part2());
+        System.out.println(day10Part1());
+        System.out.println(day10Part2());
     }
 
     private static String day1Part1() {
@@ -135,6 +138,16 @@ public class Runner {
     private static String day9Part2() {
         long answer = new Day9(new File("src/main/resources/day9.txt")).part2();
         return getResultString(answer, 9, 2);
+    }
+
+    private static String day10Part1() {
+        var answer = new Day10(new File("src/main/resources/day10.txt")).part1();
+        return getResultString(answer, 10, 1);
+    }
+
+    private static String day10Part2() {
+        var answer = new Day10(new File("src/main/resources/day10.txt")).part2();
+        return getResultString(answer, 10, 2);
     }
 
     static String getResultString(Object result, int day, int part) {
